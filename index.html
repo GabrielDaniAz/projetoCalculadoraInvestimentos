@@ -10,7 +10,7 @@
   <aside class="bg-emerald-300 row-span-2 flex flex-col justify-between py-5 px-2">
     <h1 class="text-2xl font-bold px-6 py-2 text-center">Calculadora de Investimentos</h1>
 
-    <form class="w-full">
+    <form id="investment-form" class="w-full">
       <div class="flex flex-col w-full px-6 my-2">
         <label for="starting-amount" class="font-bold text-gray-700">Investimento inicial</label>
         <div class="flex">
@@ -19,8 +19,10 @@
             type="text" 
             class="w-5/6 rounded-r-lg px-2" 
             placeholder="0.00"
+            required
+            name="starting-amount" 
             id="starting-amount" />
-        </div>
+          </div>
       </div>
 
       <div class="flex flex-col w-full px-6 my-2">
@@ -31,6 +33,7 @@
             type="text" 
             class="w-5/6 rounded-r-lg px-2" 
             placeholder="0.00"
+            name="additional-contribuition"
             id="additional-contribuition" />
         </div>
       </div>
@@ -42,8 +45,11 @@
             type="text" 
             class="w-2/3 rounded-l-lg px-2" 
             placeholder="0"
+            required
+            name="time-amount"
             id="time-amount" />
           <select 
+            name="time-amount-period" 
             id="time-amount-period" 
             class="w-1/3 rounded-r-lg text-center border-l-2 border-emerald-600 hover:bg-emerald-950 hover:text-slate-200">
             <option value="monthly">Mensal</option>
@@ -60,8 +66,11 @@
             type="text" 
             class="w-1/2 px-2" 
             placeholder="0"
+            required
+            name="return-rate"
             id="return-rate" />
           <select 
+            name="evaluation-period" 
             id="evaluation-period" 
             class="w-1/3 rounded-r-lg text-center border-l-2 border-emerald-600 hover:bg-emerald-950 hover:text-slate-200">
             <option value="monthly">Mensal</option>
@@ -78,12 +87,16 @@
             type="text" 
             class="w-5/6 rounded-r-lg px-2" 
             placeholder="0"
+            required
+            name="tax-rate"
             id="tax-rate" />
         </div>
       </div>
     </form>
     <div class="flex h-12 px-6 my-8 w-full gap-2">
       <button 
+        form="investment-form"
+        id="calculate-results"
         class="w-1/2 rounded-lg bg-emerald-950 text-slate-200 hover:bg-emerald-800">
         Calcular
       </button>
@@ -96,5 +109,7 @@
   <main>
     <p class="bg-blue-600">Resultados</p>
   </main>
+
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
